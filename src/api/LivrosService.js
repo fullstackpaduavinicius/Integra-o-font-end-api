@@ -1,26 +1,21 @@
-import axios from "axios";
+import axios from 'axios';
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = 'http://localhost:5000/api/books';
 
-export class LivrosService{
-    static getLivros(){
-        return axios.get(BASE_URL+'/livros');
-    }
-
-    static getLivro(id){
-        return axios.get(`${BASE_URL}/livros/${id}`);
-    }
-
-    static createLivro(body){
-        return axios.post(`${BASE_URL}/livros`,body);
-    }
-
-    static updateLivro(id,body){
-        return axios.put(`${BASE_URL}/livros/${id}`,body);
-    }
-
-    static deleteLivro(id){
-        return axios.delete(`${BASE_URL}/livros/${id}`);
-    }
-    
-}
+export const LivrosService = {
+  getLivros: async () => {
+    return await axios.get(BASE_URL);
+  },
+  createLivro: async (livro) => {
+    return await axios.post(BASE_URL, livro);
+  },
+  updateLivro: async (livroId, livro) => {
+    return await axios.put(`${BASE_URL}/${livroId}`, livro);
+  },
+  deleteLivro: async (livroId) => {
+    return await axios.delete(`${BASE_URL}/${livroId}`);
+  },
+  getLivro: async (livroId) => {
+    return await axios.get(`${BASE_URL}/${livroId}`);
+  },
+};

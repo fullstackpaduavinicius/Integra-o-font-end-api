@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,6 +10,7 @@ import Livros from './views/Livros/Livros';
 import LivrosCadastro from './views/LivrosCadastro/LivrosCadastro';
 import LivrosEdicao from './views/LivrosEdicao/LivrosEdicao';
 
+// Definindo as rotas
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/livros",
-    element: <Livros/>,
+    element: <Livros />,
   },
   {
     path: "/livros/cadastro",
@@ -29,8 +30,19 @@ const router = createBrowserRouter([
   },
 ]);
 
+// Componente App
+const App = () => {
+  return (
+    <RouterProvider router={router} />
+  );
+};
+
+// Renderizando o aplicativo
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>,
-)
+);
+
+// Exportando App
+export default App;
